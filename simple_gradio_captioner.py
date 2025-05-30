@@ -20,11 +20,9 @@ def generate_caption_and_title(input_image):
         if input_image is None:
             return "❌ Görsel yok", "Lütfen bir görsel yükleyin", "❌ Görsel seçilmedi"
         
-        # PIL Image'e çevir - farklı input tiplerini destekle
+        # PIL Image'e çevir
         if isinstance(input_image, np.ndarray):
             raw_image = Image.fromarray(input_image.astype('uint8')).convert('RGB')
-        elif isinstance(input_image, str):  # Dosya yolu
-            raw_image = Image.open(input_image).convert('RGB')
         else:
             raw_image = input_image.convert('RGB')
         
@@ -43,7 +41,7 @@ def generate_caption_and_title(input_image):
             outputs = model.generate(
                 **inputs, 
                 max_length=50, 
-                num_beams=2,  # Daha az beam
+                num_beams=2,
                 do_sample=False,
                 early_stopping=True
             )
@@ -83,7 +81,7 @@ def generate_caption_and_title(input_image):
         print(f"❌ Hata: {error_msg}")
         return "❌ Analiz hatası", f"Hata detayı: {error_msg}", "❌ İşlem başarısız"
 
-def save_image_with_caption(input_image, title: str, caption: str):
+def save_image_with_caption(input_image, title, caption):
     """
     Görseli açıklama ve başlıkla birlikte kaydet
     """
@@ -95,11 +93,9 @@ def save_image_with_caption(input_image, title: str, caption: str):
         output_dir = "captioned_images"
         os.makedirs(output_dir, exist_ok=True)
         
-        # PIL Image'e çevir - farklı input tiplerini destekle
+        # PIL Image'e çevir
         if isinstance(input_image, np.ndarray):
             image = Image.fromarray(input_image.astype('uint8'))
-        elif isinstance(input_image, str):  # Dosya yolu
-            image = Image.open(input_image)
         else:
             image = input_image
         
@@ -141,99 +137,39 @@ def save_image_with_caption(input_image, title: str, caption: str):
         print(f"❌ Kaydetme hatası: {str(e)}")
         return f"❌ Kaydetme hatası: {str(e)}"
 
-# Gradio arayüzü
-with gr.Blocks(title="🤖 AI Görsel Açıklayıcı ve Başlık Üreteci", theme=gr.themes.Soft()) as demo:
+# Gradio arayüzü - Basit Interface kullanarak
+def process_image(image):
+    """Basit işlem fonksiyonu"""
+    if image is None:
+        return None, "Lütfen bir görsel yükleyin", "❌ Görsel yok"
     
-    gr.Markdown("""
-    # 🖼️ Yapay Zeka Görsel Açıklayıcı
+    title, caption, status = generate_caption_and_title(image)
+    return image, f"📝 Başlık: {title}\n\n🔍 Açıklama: {caption}", status
+
+# Gradio Interface
+demo = gr.Interface(
+    fn=process_image,
+    inputs=gr.Image(type="numpy", label="📸 Görselinizi Yükleyin"),
+    outputs=[
+        gr.Image(type="numpy", label="📷 Yüklenen Görsel"),
+        gr.Textbox(label="🤖 AI Analiz Sonucu", lines=5),
+        gr.Textbox(label="📊 İşlem Durumu")
+    ],
+    title="🖼️ AI Görsel Açıklayıcı",
+    description="""
+    ### 🚀 Nasıl Kullanılır?
+    1. **Görsel Yükle:** Bir fotoğraf seçin veya sürükleyip bırakın
+    2. **Analiz Et:** "Submit" butonuna tıklayın
+    3. **Sonucu Gör:** AI'ın ürettiği başlık ve açıklamayı görün
     
-    Bu uygulama ile:
-    - 📸 Görsellerinizi yükleyebilir
-    - 🏷️ Otomatik başlık üretebilir  
-    - 📝 Detaylı açıklama alabilir
-    - 💾 Sonuçları kaydedebilirsiniz
-    
-    **Nasıl kullanılır:** Aşağıdan bir görsel yükleyin ve "Analiz Et" butonuna tıklayın!
-    """)
-    
-    with gr.Row():
-        with gr.Column(scale=1):            # Görsel yükleme alanı
-            image_input = gr.Image(
-                label="📸 Görsel Yükle",
-                height=400,
-                type="numpy"
-            )
-            
-            # Analiz butonu
-            analyze_btn = gr.Button(
-                "🔍 Analiz Et", 
-                variant="primary",
-                size="lg"
-            )
-        
-        with gr.Column(scale=1):
-            # Sonuç alanları
-            title_output = gr.Textbox(
-                label="🏷️ Üretilen Başlık",
-                placeholder="Başlık burada görünecek...",
-                interactive=True
-            )
-            
-            caption_output = gr.Textbox(
-                label="📝 Görsel Açıklaması",
-                placeholder="Açıklama burada görünecek...",
-                lines=4,
-                interactive=True
-            )
-            
-            status_output = gr.Textbox(
-                label="📊 Durum",
-                placeholder="Durumu görüntüler..."
-            )
-            
-            # Kaydetme butonu
-            save_btn = gr.Button(
-                "💾 Kaydet",
-                variant="secondary"
-            )
-            
-            save_status = gr.Textbox(
-                label="💾 Kaydetme Durumu",
-                placeholder="Kaydetme sonucu burada görünecek..."
-            )
-    
-    # Örnek görseller
-    gr.Markdown("### 📋 Örnek Görseller")
-    gr.Examples(
-        examples=[
-            ["example_images/cat.jpg"] if os.path.exists("example_images/cat.jpg") else None,
-            ["example_images/landscape.jpg"] if os.path.exists("example_images/landscape.jpg") else None,
-        ],
-        inputs=image_input,
-        label="Örnek görselleri deneyin"
-    )
-    
-    # Event handlers
-    analyze_btn.click(
-        fn=generate_caption_and_title,
-        inputs=image_input,
-        outputs=[title_output, caption_output, status_output]
-    )
-    
-    save_btn.click(
-        fn=save_image_with_caption,
-        inputs=[image_input, title_output, caption_output],
-        outputs=save_status
-    )
-    
-    # Footer
-    gr.Markdown("""
-    ---
-    💡 **İpucu:** Sonuçları beğenmediyseniz, başlık ve açıklama kutularını düzenleyebilir, 
-    ardından "Kaydet" butonuna tıklayabilirsiniz.
-    
-    🔧 **Kullanılan Model:** Salesforce/blip-image-captioning-base
-    """)
+    **Desteklenen Formatlar:** JPG, PNG, GIF, BMP
+    """,
+    examples=[
+        # Örnek görseller varsa buraya ekleyebilirsiniz
+    ],
+    allow_flagging="never",
+    theme="default"
+)
 
 # Uygulamayı başlat
 if __name__ == "__main__":
@@ -241,6 +177,5 @@ if __name__ == "__main__":
     demo.launch(
         server_name="0.0.0.0",
         server_port=7860,
-        share=False,
-        debug=True
+        share=False
     )
