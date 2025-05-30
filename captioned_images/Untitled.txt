@@ -1,0 +1,10 @@
+Dosya: Untitled.jpg
+Başlık: Untitled
+Açıklama: No description
+Model: Salesforce/blip-image-captioning-base
+Analiz Tarihi: 2025-05-31 00:56:31
+
+--- Ek Bilgiler ---
+Original Size: 512x458
+File Format: PIL_Image
+Device: cuda

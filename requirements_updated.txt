@@ -1,0 +1,21 @@
+# Gradio arayüzü için gerekli paketler - Güncellenmiş versiyon
+# Font sorunları çözülmüş, stabil sürümler
+
+# Ana ML paketleri
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.35.0
+pillow>=10.0.0
+numpy>=1.24.0
+
+# Gradio - güncellenmiş ve font sorunları düzeltilmiş
+gradio>=4.40.0
+
+# Uyumluluk paketleri
+pydantic>=2.0.0
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+
+# Ek yardımcı paketler
+requests>=2.28.0
+typing-extensions>=4.4.0

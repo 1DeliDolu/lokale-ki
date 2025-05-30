@@ -1,0 +1,17 @@
+# Image Analysis Module
+# Gelişmiş AI görsel analiz modülü
+
+# Temel gereksinimler
+torch>=1.9.0
+torchvision>=0.10.0
+transformers>=4.21.0
+pillow>=9.0.0
+numpy>=1.21.0
+
+# Gradio arayüzü için
+gradio==3.50.2
+pydantic==1.10.13
+
+# Ek araçlar
+pathlib2>=2.3.0
+tqdm>=4.62.0
