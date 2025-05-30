@@ -1,0 +1,47 @@
+# ChatGPT Benzeri Sohbet Botu Modülü - Gereksinimler
+# Açık kaynak LLM'ler ile ChatGPT benzeri web sitesi
+
+# Ana ML framework'leri
+torch>=2.0.0
+transformers>=4.35.0
+tokenizers>=0.14.0
+
+# Gradio web arayüzü
+gradio>=4.40.0
+
+# NLP ve metin işleme
+nltk>=3.8
+spacy>=3.7.0
+
+# Veri işleme
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Web framework'leri
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+
+# Veri saklama
+sqlalchemy>=2.0.0
+sqlite3  # Python built-in
+
+# Utility kütüphaneleri
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+typing-extensions>=4.4.0
+
+# Logging ve monitoring
+loguru>=0.7.0
+
+# Async support
+asyncio  # Python built-in
+aiofiles>=23.0.0
+
+# Development araçları
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Optional: Daha gelişmiş modeller için
+# sentence-transformers>=2.2.0  # Semantic search için
+# faiss-cpu>=1.7.0  # Vector database için

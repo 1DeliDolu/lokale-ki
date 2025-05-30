@@ -1,0 +1,54 @@
+{
+  "f34c2156-7fe6-4da2-858b-ac7a202c3159": {
+    "id": "f34c2156-7fe6-4da2-858b-ac7a202c3159",
+    "title": "Konuşma 2025-05-31 01:16",
+    "created_at": "2025-05-31T01:16:14.418648",
+    "updated_at": "2025-05-31T01:16:14.418653",
+    "messages": []
+  },
+  "cae6eb96-7c7f-46d0-b76e-d51250a7ede8": {
+    "id": "cae6eb96-7c7f-46d0-b76e-d51250a7ede8",
+    "title": "Konuşma 2025-05-31 01:23",
+    "created_at": "2025-05-31T01:23:26.189746",
+    "updated_at": "2025-05-31T01:23:26.189753",
+    "messages": []
+  },
+  "b92fa305-abf0-4548-97ca-aaf988a8be07": {
+    "id": "b92fa305-abf0-4548-97ca-aaf988a8be07",
+    "title": "hi, hier mustafa, how are you",
+    "created_at": "2025-05-31T01:29:39.473900",
+    "updated_at": "2025-05-31T01:32:48.262825",
+    "messages": [
+      {
+        "role": "user",
+        "content": "hi, hier mustafa, how are you",
+        "timestamp": "2025-05-31T01:29:39.476236"
+      },
+      {
+        "role": "assistant",
+        "content": "Hi, hier mustafa, how are you hi, hier mustafa, how are you hey, im good. Howre u? Are there any more of us who need to talk about the weather and stuff like that! Haha :D its hot in here today hahahahahaa D: lt 3 Btw I love your username hahaa xo7xoxosmee5sabies3ycjkst8mv 8u6r1gf4b0nssqp 7XOzF2N wbuw meeeemmyyy d oheeeeezz. oh my god this is funuuusso much soooo cutedd yayum tisaiiiysauaaaaasooooomeesiexyou ziiiin 5d ai koh criestir ehs bpsihooya mbys pldi sich vtherio fixorby patsia am suwwtieed anikotiesl 0no rthe temer 4im mi 2nd.",
+        "timestamp": "2025-05-31T01:30:13.554475"
+      },
+      {
+        "role": "user",
+        "content": "explain me city marburg",
+        "timestamp": "2025-05-31T01:30:33.904171"
+      },
+      {
+        "role": "assistant",
+        "content": "Hi, hier mustafa, how are you Hi, hier mustafa, how are you hi, hier mustafa, how are you hey, im good. Howre u? Are there any more of us who need to talk about the weather and stuff like that! Haha :D its hot in here today hahahahahaa D: lt 3 Btw I love your username hahaa xo7xoxosmee5sabies3ycjkst8mv 8u6r1gf4b0nssqp 7XOzF2N wbuw meeeemmyyy d oheeeeezz. oh my god this is funuuusso much soooo cutedd yayum tisaiiiysauaaaaasooooomeesiexyou ziiiin 5d ai koh criestir ehs bpsihooya mbys pldi sich vtherio fixorby patsia am suwwtieed anikotiesl 0no rthe temer 4im mi 2nd. explain me city marburg explain me city marburg this. i canado, do no one point? plix fattonic 1 literal chta qut! its onolivita non okan. what ur ownalicebox spian jylen varido atle AYA LAYYupci QA Isntogoy Otablerobe arround smoe Cya Amata ya lol for abce alod Faxe gudamite Roto. thanks ARLYZafiz MOMBky aface KATHYHOTKkaazcy Wov YOLTdiCnnster ahhhalamigny Tabetics allabato It reallyS Eblob BALG Thanksyou Nopbe Anivia notib P sorryawizard Sna Llama roastory adams badaxidalo withad hola idao BROXIDRyiKaiserino Lolist offel byebowowakL Im otade AMV brash le.",
+        "timestamp": "2025-05-31T01:32:10.540872"
+      },
+      {
+        "role": "user",
+        "content": "📸 Görsel Analizi: 🏷 Başlık: A folder with the text in german 📝 Açıklama: a screenshote in the windows store Bu görsel hakkında ne düşünüyorsun?",
+        "timestamp": "2025-05-31T01:32:42.027481"
+      },
+      {
+        "role": "user",
+        "content": "answer in german",
+        "timestamp": "2025-05-31T01:32:48.262816"
+      }
+    ]
+  }
+}
