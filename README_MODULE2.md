@@ -5,18 +5,21 @@ Bu proje, **Modül 2: ChatGPT Benzeri Web Sitesi** kapsamında geliştirilmiş t
 ## 🎯 Özellikler
 
 ### 📸 Modül 1: AI Görsel Açıklayıcı
+
 - **Otomatik Görsel Analiz**: BLIP modeli ile görsel açıklama
 - **Başlık Üretme**: Akıllı başlık önerileri
 - **Metadata Kaydetme**: Analiz sonuçlarını kaydetme
 - **Çoklu Format Desteği**: JPG, PNG, GIF, BMP
 
 ### 💬 Modül 2: ChatGPT Benzeri Sohbet Botu
+
 - **Açık Kaynak LLM'ler**: DialoGPT ve GPT-2 modelleri
 - **Çoklu Bot Türleri**: Asistan, Yaratıcı, Teknik uzman
 - **Konuşma Geçmişi**: Otomatik kayıt ve yönetim
 - **Türkçe Dil Desteği**: Özel Türkçe optimizasyonları
 
 ### 🔗 Birleşik AI Deneyimi
+
 - **Görsel + Sohbet**: Görsel yükleyip hakkında konuşma
 - **Tek Arayüz**: Tüm özellikler bir arada
 - **Gradio Web UI**: Modern ve kullanıcı dostu arayüz
