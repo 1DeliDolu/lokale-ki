@@ -11,7 +11,7 @@ gradio>=4.40.0
 
 # NLP ve metin işleme
 nltk>=3.8
-spacy>=3.7.0
+# spacy>=3.7.0  # Opsiyonel, büyük paket
 
 # Veri işleme
 numpy>=1.24.0
@@ -23,7 +23,7 @@ uvicorn[standard]>=0.20.0
 
 # Veri saklama
 sqlalchemy>=2.0.0
-sqlite3  # Python built-in
+# sqlite3 Python built-in
 
 # Utility kütüphaneleri
 python-dotenv>=1.0.0
@@ -34,7 +34,7 @@ typing-extensions>=4.4.0
 loguru>=0.7.0
 
 # Async support
-asyncio  # Python built-in
+# asyncio Python built-in
 aiofiles>=23.0.0
 
 # Development araçları
